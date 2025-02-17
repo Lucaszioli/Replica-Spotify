@@ -30,6 +30,13 @@ export const Player = ({ duration, songsArray, audio }) => {
     isPlaying ? audioPlayer.current.pause() : audioPlayer.current.play();
     setIsPlaying(!isPlaying);
   };
+
+  const resetMusic = () => {
+    audioPlayer.current.load();
+    setIsPlaying(false);
+    setCurrentTime(0);
+    playerBar.current.style.setProperty("--_progress", `0%`);
+  };
   const randomIdFromArtist =
     songsArray[Math.floor(Math.random() * (songsArray.length - 1))]._id;
   const randomIdFromArtist2 =
@@ -52,7 +59,11 @@ export const Player = ({ duration, songsArray, audio }) => {
     <div className="player">
       <div className="player__controllers">
         <Link to={`/song/${randomIdFromArtist}`}>
-          <FontAwesomeIcon className="player__icon" icon={faBackwardStep} />
+          <FontAwesomeIcon
+            className="player__icon"
+            icon={faBackwardStep}
+            onClick={resetMusic}
+          />
         </Link>
         <FontAwesomeIcon
           className="player__icon player__icon--play"
@@ -60,7 +71,11 @@ export const Player = ({ duration, songsArray, audio }) => {
           onClick={playPause}
         />
         <Link to={`/song/${randomIdFromArtist2}`}>
-          <FontAwesomeIcon className="player__icon" icon={faForwardStep} />
+          <FontAwesomeIcon
+            className="player__icon"
+            icon={faForwardStep}
+            onClick={resetMusic}
+          />
         </Link>
       </div>
       <div className="player__progress">
