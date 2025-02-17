@@ -10,19 +10,19 @@ const app = express();
 
 app.use(cors());
 
-app.get("api/artists", async (req, res) =>
+app.get("/api/artists", async (req, res) =>
   res.send(await db.collection("artists").find({}).toArray())
 );
-app.get("api/songs", async (req, res) =>
+app.get("/api/songs", async (req, res) =>
   res.send(await db.collection("songs").find({}).toArray())
 );
 
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.get("*", (req, res) => {
-  response.sendFile(path.join(__dirname, "../client/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(3030, () => {
   console.log("Server is running on port " + process.env.PORT);
 });

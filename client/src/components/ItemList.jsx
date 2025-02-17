@@ -19,6 +19,7 @@ export const ItemList = ({ title, items, itemsArray, path, idPath }) => {
         )}
       </div>
       <div className="item-list__container">
+        {console.log(itemsArray)}
         {itemsArray
           .filter((currentValue, index) => (isHome ? index < items : true))
           .map((currentValue, index) => (
