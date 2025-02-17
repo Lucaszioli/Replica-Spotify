@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run": "node --watch server.js"
+    "start": "node server.js"
   },
   "author": "",
   "type": "module",
@@ -13,6 +13,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongodb": "^6.13.0"
+    "mongodb": "^6.13.0",
+    "path": "^0.12.7",
+    "spotify": "file:.."
   }
 }

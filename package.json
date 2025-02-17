@@ -1,0 +1,12 @@
+{
+  "name": "spotify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm i --prefix client && npm i --prefix api && npm run build --prefix client",
+    "start": "npm run start --prefix api"
+  },
+  "author": "",
+  "license": "ISC"
+}

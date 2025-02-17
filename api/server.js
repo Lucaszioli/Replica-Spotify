@@ -1,20 +1,27 @@
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 import { db } from "./connect.js";
-import dotenv from "dotenv";
+import "dotenv/config";
+import path from "path";
 
-dotenv.config();
+const __dirname = path.resolve();
 
 const app = express();
 
 app.use(cors());
 
-app.get("/artists", async (req, res) =>
+app.get("api/artists", async (req, res) =>
   res.send(await db.collection("artists").find({}).toArray())
 );
-app.get("/songs", async (req, res) =>
+app.get("api/songs", async (req, res) =>
   res.send(await db.collection("songs").find({}).toArray())
 );
+
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+  response.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
 
 app.listen(process.env.PORT, () => {
   console.log("Server is running on port " + process.env.PORT);
