@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const URL = "http://localhost:3030";
+// const URL = "http://localhost:3030/api";
 const URL = "https://replica-spotify-txra.onrender.com/api";
 
 const responseArtist = await axios.get(`${URL}/artists`);

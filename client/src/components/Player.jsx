@@ -79,7 +79,7 @@ export const Player = ({ duration, songsArray, audio }) => {
         </Link>
       </div>
       <div className="player__progress">
-        <p className="playe__time">{formatTime(currentTime)}</p>
+        <p className="player__time">{formatTime(currentTime)}</p>
         <div className="player__bar">
           <div ref={playerBar} className="player__bar-progress"></div>
         </div>

@@ -39,7 +39,7 @@ export const Song = () => {
           songsArray={songsFromArtist}
           audio={song.audio}
         />
-        <div>
+        <div className="song__info">
           <p className="song__name">{song.name}</p>
           <p>{song.artist}</p>
         </div>
