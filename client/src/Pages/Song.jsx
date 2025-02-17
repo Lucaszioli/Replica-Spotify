@@ -1,14 +1,15 @@
 import React from "react";
 import { Player } from "../components/Player";
 import { Link, useParams } from "react-router-dom";
-import { songsArray } from "../db/songs";
-import { artistArray } from "../db/artists";
+import { songsArray } from "../api.js";
+import { artistArray } from "../api.js";
 export const Song = () => {
   const id = useParams().id;
-  const song = songsArray.find((song) => song.id == id);
+  const song = songsArray.find((song) => song._id == id);
+  // console.log(songsArray);
   const artist = artistArray.find((artist) => artist.name == song.artist);
   const songsFromArtist = songsArray.filter(
-    (song) => song.artist == artist.name && song.id != id
+    (song) => song.artist == artist.name && song._id != id
   );
   return (
     <div className="song">
@@ -24,7 +25,7 @@ export const Song = () => {
       </div>
       <div className="song__bar">
         <div className="song__artist-image">
-          <Link to={`/artist/${artist.id}`}>
+          <Link to={`/artist/${artist._id}`}>
             <img
               width={75}
               height={75}

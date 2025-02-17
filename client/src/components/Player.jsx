@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 export const Player = ({ duration, songsArray }) => {
   console.log(songsArray);
   const randomIdFromArtist =
-    songsArray[Math.floor(Math.random() * (songsArray.length - 1))].id;
+    songsArray[Math.floor(Math.random() * (songsArray.length - 1))]._id;
   const randomIdFromArtist2 =
-    songsArray[Math.floor(Math.random() * (songsArray.length - 1))].id;
+    songsArray[Math.floor(Math.random() * (songsArray.length - 1))]._id;
   return (
     <div className="player">
       <div className="player__controllers">

@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { Link, useParams } from "react-router-dom";
 import { SongList } from "../components/SongList";
-import { artistArray } from "../db/artists";
-import { songsArray } from "../db/songs";
+import { artistArray } from "../api.js";
+import { songsArray } from "../api.js";
 export const Artist = () => {
   const id = useParams().id;
 
-  const artist = artistArray.find((artist) => artist.id == id);
+  const artist = artistArray.find((artist) => artist._id == id);
 
   const songsFromArtist = songsArray.filter(
     (song) => song.artist == artist.name
@@ -16,7 +16,7 @@ export const Artist = () => {
 
   const randomIdFromArtist =
     songsFromArtist[Math.floor(Math.random() * (songsFromArtist.length - 1))]
-      .id;
+      ._id;
 
   return (
     <div className="artist">

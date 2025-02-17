@@ -1,7 +1,7 @@
 import React from "react";
 import { ItemList } from "./ItemList";
-import { artistArray } from "../db/artists";
-import { songsArray } from "../db/songs";
+import { artistArray } from "../api.js";
+import { songsArray } from "../api.js";
 
 export const Main = ({ type }) => {
   return (
