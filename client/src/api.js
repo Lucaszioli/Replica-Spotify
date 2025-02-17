@@ -7,5 +7,3 @@ const responseSongs = await axios.get(`${URL}/songs`);
 
 export const artistArray = responseArtist.data;
 export const songsArray = responseSongs.data;
-
-console.log(songsArray);
