@@ -34,7 +34,11 @@ export const Song = () => {
             />
           </Link>
         </div>
-        <Player duration={song.duration} songsArray={songsFromArtist} />
+        <Player
+          duration={song.duration}
+          songsArray={songsFromArtist}
+          audio={song.audio}
+        />
         <div>
           <p className="song__name">{song.name}</p>
           <p>{song.artist}</p>
